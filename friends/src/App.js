@@ -12,21 +12,23 @@ function App() {
 	const classes = useStyles();
 	return (
 		<Router>
-			<Grid container>
-				<Button>
-					<Link to="/about">About</Link>
-				</Button>
-				<Button className={classes.button}>
-					<Link to="/login">Login</Link>
-				</Button>
-				<Button className={classes.button}>
-					<Link to="/protected">Protected</Link>
-				</Button>
-				<Switch>
-					<PrivateRoute exact path="/protected" component={Friends} />
-					<Route path="/about" component={About} />
-					<Route path="/login" component={Login} />
-				</Switch>
+			<Grid container className={classes.container}>
+				<Grid item className={classes.header}>
+					{/* <Button>
+						<Link to="/about">About</Link>
+					</Button>
+					<Button className={classes.button}>
+						<Link to="/login">Login</Link>
+					</Button>
+					<Button className={classes.button}>
+						<Link to="/protected">Protected</Link>
+					</Button> */}
+					<Switch>
+						<PrivateRoute exact path="/protected" component={Friends} />
+						<Route path="/about" component={About} />
+						<Route path="/" component={Login} />
+					</Switch>
+				</Grid>
 			</Grid>
 		</Router>
 	);
